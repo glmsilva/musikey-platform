@@ -9,14 +9,16 @@ body {
     width: 100%;
   }
 .navbar {
+  font-size: 20px;
     padding-bottom: 15px;
     font-family: 'Arvo', sans-serif;
 }
 
+
 .login-box{
     background-color: white;
     color: black;
-    padding: 1rem 1rem;
+    
     margin-left: 0;
     margin-right: 0;
 
