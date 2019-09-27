@@ -2,7 +2,7 @@
 .pageMusico{
 
     background-color: white;
-    background-image: url(../image/musico.jpeg);
+    background-image: url(../image/call-me-hangry-a3YXYC1n5ao-unsplash.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
@@ -23,4 +23,9 @@
   h1 {
     color: white;
     text-shadow: 2px 2px 4px #000000;
+  }
+
+.navbar-brand
+  {
+    font-size: 20px;
   }
