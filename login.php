@@ -65,6 +65,7 @@ session_start();
     <div class="col-md-6">
     <h2 class="text-center mt-5">Sou Banda</h2>
     <div class="login-box mb-5">
+
       <?php if($_SERVER['REQUEST_METHOD'] == 'POST')
             require ('process-login-banda.php');
       ?>

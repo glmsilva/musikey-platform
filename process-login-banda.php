@@ -26,8 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 exit();
             }
             else{
-                $_SESSION['nao_autenticado'] = true;
-                
+                $_SESSION['nao_autenticado'] = true;                
                 exit();
             }
         }
@@ -40,6 +39,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		echo "<p class=' text-center col-sm-12 lead' style='color:red'>$errorstring</p>";
 
         }
+
     }
     catch(Exception $e)
     {

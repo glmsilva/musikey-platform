@@ -1,16 +1,14 @@
 <?php
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){    
-
-
     try{
         require ('conect.php');
         $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+
         if((empty($email)) || (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
             $errors[] = 'Você esqueceu de colocar seu email';
             $errors[] = ' ou o formato do seu email está incorreto.';
         }
-
         $password = filter_var( $_POST['senha'], FILTER_SANITIZE_STRING);	
         if (empty($password)) {
             $errors[] = 'Você esqueceu de colocar sua senha.';
@@ -27,8 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 exit();
             }
             else{
-                $_SESSION['nao_autenticado'] = true;
-                
+                $_SESSION['nao_autenticado'] = true;                
                 exit();
             }
         }
