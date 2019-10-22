@@ -5,7 +5,7 @@
         <a class="nav-link" href="#sobre">sobre nós</a>
     </li>
     <li class="nav-item">
-        <a href="#cadastro" class="nav-link">faça parte</a> 
+        <a href="index.php#cadastro" class="nav-link">faça parte</a> 
     </li>
     <li class="nav-item active">
         <a class="nav-link" href="login.php">entre</a>

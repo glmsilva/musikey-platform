@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
         $password = filter_var( $_POST['senha'], FILTER_SANITIZE_STRING);	
         if (empty($password)) {
-            $errors[] = 'You forgot to enter your password.';
+            $errors[] = 'Você esqueceu de colocar sua senha.';
         }
 
         if(empty($errors)){
@@ -26,14 +26,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 exit();
             }
             else{
-                $_SESSION['nao_autenticado'] = true;
-                header('Location: index.php');
+                $_SESSION['nao_autenticado'] = true;                
                 exit();
             }
         }
+        else{
+            $errorstring = "Error! <br /> Os seguintes erros ocorreram:<br>";
+		foreach ($errors as $msg) { // Printa cada erro.
+			$errorstring .= " - $msg<br>\n";
+		}
+		$errorstring .= "Por favor tente novamente.<br>";
+		echo "<p class=' text-center col-sm-12 lead' style='color:red'>$errorstring</p>";
 
-
-
+        }
 
     }
     catch(Exception $e)
