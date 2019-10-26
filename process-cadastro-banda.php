@@ -22,6 +22,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     if($senha != $confirma){
         $erro[] = 'Senha não confere com o que foi digitado';
     }
+    else{
+        $senha = password_hash($senha, PASSWORD_DEFAULT);
+    }
 
     $nome = filter_var($_POST['nome'], FILTER_SANITIZE_STRING);
     if(empty($nome)){
@@ -52,7 +55,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     }
 
     if(empty($erro)){ //se não tiver erros fazer a inserção no banco
-        $query = "INSERT INTO tb_banda values(default, '$email', '$nome', '$generoBanda', '$descricao', '$local', '$busca', '$contato', NOW()";
+        //$query = "INSERT INTO tb_banda values(default, '$email', '$nome', '$generoBanda', '$descricao', '$local', '$busca', '$contato', NOW()";
+        $query = "call cadastra_banda('$nome', '$generoBanda', '$descricao', '$local', '$busca', '$contato', '$email', '$senha');";
         mysqli_query($link, $query);
         header('location: thanks-banda.php');
     }

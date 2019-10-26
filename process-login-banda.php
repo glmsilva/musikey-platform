@@ -16,17 +16,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
 
         if(empty($errors)){
-            $query = "SELECT email, nome_banda, senha from tb_banda where email = '$email'";
+            $query = "SELECT email, senha from tb_user where email = '$email' and tipo = 1";
             $result = mysqli_query($link, $query);
             $row = mysqli_num_rows($result);
 
-            if($rows == 1){
+            if($row == 1){
                 $_SESSION['email'] = $email;
                 header('Location: painel.php');
                 exit();
             }
             else{
-                $_SESSION['nao_autenticado'] = true;                
+                $_SESSION['nao_autenticado'] = true;
+                
                 exit();
             }
         }
@@ -39,7 +40,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		echo "<p class=' text-center col-sm-12 lead' style='color:red'>$errorstring</p>";
 
         }
-
     }
     catch(Exception $e)
     {
