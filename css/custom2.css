@@ -8,6 +8,7 @@ body {
     height: 100%;
     width: 100%;
   }
+
 .navbar {
   font-size: 20px;
     padding-bottom: 15px;
@@ -40,9 +41,7 @@ body {
     background-color: #750667;;
     color: #cdcdcd;
   }
-.navbar-brand{
-  font-family: 'Pattaya', sans-serif;
-}
+
 .jumbotron
 {
     background:transparent;
@@ -61,6 +60,7 @@ h1{
     background-color: white;
     width: 100%;   
     margin: 0px;
+    
     
 }
 
@@ -105,4 +105,9 @@ h1{
     -o-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
+  }
+
+  .linha-vertical {
+    height: 500px;/*Altura da linha*/
+    border-left: 2px solid;/* Adiciona borda esquerda na div como ser fosse uma linha.*/
   }
