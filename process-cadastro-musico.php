@@ -93,6 +93,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($senha != $confirma){
             $erro[] = 'Senha não confere com o que foi digitado';
         }
+        else{
+            $senha = password_hash($senha, PASSWORD_DEFAULT);
+        }
 
         $tel = $_POST['tel'];
         if(empty($tel)){
@@ -101,7 +104,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         if(empty($erro)){
             $dataNascimento = "$ano" . "-" . "$mes" . "-" . "$dia";
-            $query = "INSERT INTO tb_musico values(default, '$nome', '$sobrenome', '$dataNascimento','$funcao1', '$funcao2', '$funcao3', '$email', '$tel', NOW());";
+            //$query = "INSERT INTO tb_musico values(default, '$nome', '$sobrenome', '$dataNascimento','$funcao1', '$funcao2', '$funcao3', '$email', '$tel', NOW());";
+            $query = "call cadastra_musico('$nome', '$sobrenome', '$dataNascimento', '$funcao1', '$funcao2', '$funcao3', '$tel', '$email', '$senha', 2)";
+
             mysqli_query($link, $query);
             header('location:thanks-musico.php');
             exit();

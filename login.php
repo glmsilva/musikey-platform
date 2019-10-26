@@ -65,9 +65,12 @@ session_start();
     <div class="col-md-6">
     <h2 class="text-center mt-5">Sou Banda</h2>
     <div class="login-box mb-5">
-
-      <?php if($_SERVER['REQUEST_METHOD'] == 'POST')
-            require ('process-login-banda.php');
+      <?php if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        if(isset($_POST['login-banda'])){
+          require ('process-login-banda.php');
+        }
+      }
+            
       ?>
     <form class="form-signin" name="form_login" method="POST" action="login.php">
         <div class="text-center">
@@ -93,18 +96,26 @@ session_start();
     <div class="col-md-5">
     <h2 class="text-center mt-5">Sou Músico</h2>
     <div class="login-box mb-5">
-    <form class="form-signin" name="form_login" method="POST" action="process-login-musico.php">
+    <?php if($_SERVER['REQUEST_METHOD'] == 'POST'){
+      if(isset($_POST['login-musico'])){
+        require ('process-login-musico.php');
+      }
+
+    }
+            
+      ?>
+    <form class="form-signin" name="form_login" method="POST" action="login.php">
         <div class="text-center">
         <img class="mb-4 mt-3" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal text-body">Login</h1>  
         </div>
         <div class="form-label-group">
         <input type="email" id="inputEmail" class="form-control" placeholder="Insira seu email" 
-        name="email" required autofocus size="30" maxlength="50"  value="<?php if(isset($_POST['email'])) echo $_POST['email'];?>">
+        name="email" autofocus size="30" maxlength="50"  value="<?php if(isset($_POST['email'])) echo $_POST['email'];?>">
         <label for="inputEmail">Email</label>
         </div>
         <div class="form-label-group">
-        <input type="password" id="inputPassword" class="form-control" placeholder="Insira sua senha" name="senha" size="8" maxlength="20" required>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Insira sua senha" name="senha" size="8" maxlength="20" >
         <label for="inputPassword">Senha</label>
         </div>
         <input type="submit" class="btn btn-primary form-control" value="Entrar" name="login-musico">
